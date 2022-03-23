@@ -193,11 +193,15 @@
 }
 
 .section-article__list {
-  margin: 0 0 25px 35px;
+  margin: 0 0 25px;
+}
+
+.section-article__list ul {
+  margin: 0 0 0 35px;
   list-style: square;
 }
 
-.section-article__list--mod {
+.section-article__list--mod ul {
   margin-left: 0;
 }
 
@@ -213,18 +217,10 @@
   list-style: none;
 }
 
-.section-article__quote {
+.section-article blockquote {
   margin: 45px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.section-article__quote-content {
-  max-width: 630px;
+  padding: 0;
+  border: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -232,25 +228,40 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
+  padding-left: 176px;
+  min-height: 102px;
 }
 
-.section-article__quote-content p {
+.section-article blockquote::before {
+  content: "";
+  display: block;
+  width: 116px;
+  height: 102px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  background-image: url("../assets/img/ico/quote.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+.section-article blockquote p {
+  color: #000;
+  max-width: 630px;
   font-style: italic;
   margin-bottom: 15px;
 }
 
-.section-article__quote-content p:last-of-type {
-  margin-bottom: 0;
+.section-article blockquote p:first-of-type {
+  padding-top: 18px;
 }
 
-.section-article__quote-icon {
-  display: block;
-  width: 116px;
-  height: 102px;
-  margin-bottom: 25px;
-  margin-right: 60px;
-  -o-object-fit: contain;
-     object-fit: contain;
+.section-article blockquote p:last-of-type {
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -280,34 +291,29 @@
     max-width: calc(50% - 7.5px);
   }
 
-  .section-article__list {
+  .section-article__list ul {
     margin-left: 30px;
   }
 
-  .section-article__list--mod {
+  .section-article__list--mod ul {
     margin-left: 10px;
   }
 
-  .section-article__quote {
+  .section-article blockquote {
     margin: 0 0 25px;
-    padding: 45px 0;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: start;
+    padding: 45px 0 45px 45px;
+    min-height: 38px;
   }
 
-  .section-article__quote-content {
-    margin-top: 18px;
-  }
-
-  .section-article__quote-content p {
-    margin-bottom: 22px;
-  }
-
-  .section-article__quote-icon {
+  .section-article blockquote::before {
     width: 35px;
     height: 38px;
     margin-right: 12px;
+    top: 45px;
+  }
+
+  .section-article blockquote p {
+    margin-bottom: 22px;
   }
 }
 
